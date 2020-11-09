@@ -1,5 +1,17 @@
 <div class="m list-group">
 
+<ul >
+  <li *ngFor="let x of posts">
+    <a routerLink="/home/">
+      {{x.title}}
+    </a> 
+  </li>
+  <li *ngFor="let x of posts">
+    <a routerLink="/home/">
+      {{x.description}}
+     </a>
+  </li>
+</ul>
 
   <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">

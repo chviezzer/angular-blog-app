@@ -9,8 +9,8 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
 
-    const posts = [ { title : 'TutsPlus Python Entry',
-    description : 'Welcome to official entry of TutsPlus Python programming session'
+    const posts = [ { title : '',
+    description : ''
   }];
     return {posts};
   }

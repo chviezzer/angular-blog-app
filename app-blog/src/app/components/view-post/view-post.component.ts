@@ -11,13 +11,14 @@ import { ViewPostService } from 'src/app/services/view-post.service';
 })
 export class ViewPostComponent implements OnInit {
 
- posts:  Post[];
+ posts:  any [] = [];
 
   constructor(private viewPostService: ViewPostService, private commonService: CommonService) { }
 
  
 
   ngOnInit(): void {
+    
     this.getAllPost();
 
     this.commonService.postAdded_Observable.subscribe(res => {
@@ -28,7 +29,10 @@ export class ViewPostComponent implements OnInit {
 
   getAllPost(): void {
     this.viewPostService.getAllPost()
-    .subscribe(result => this.posts = result['']);
+    .subscribe((data: any) => {
+      this.posts = data.results;
+    })
+    // .subscribe(result => this.posts = result['']);
   }
  
   editPost(post: Post){
