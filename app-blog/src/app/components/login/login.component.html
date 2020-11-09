@@ -2,14 +2,42 @@
 
 <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-       <input name="email" [(ngModel)] = "user.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-       <label for="inputPassword" class="sr-only">Password</label>
-       <input name="password" [(ngModel)] = "user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-       <div class="checkbox">
-         <label>
-           <input type="checkbox" value="remember-me"> Remember me
-         </label>
-       </div>
-   <button class="btn btn-lg btn-primary btn-block"  type="button">Sign in</button>
-  </form>
+    <div class="limiter">
+      <div class="container-login100">
+          <div class="wrap-login100 p-t-50 p-b-90">
+              <form class="login100-form validate-form flex-sb flex-w"
+                   (ngSubmit)='login(formdata)'
+                   #formdata = 'ngForm'
+              >
+                  <span class="login100-form titl p-b-51 font-weight-bold" style="font-size: 30px;">
+                      Login
+                  </span>
+                  <div class="wrap-input100 m-b-16">
+                      <input
+                          class="input100"
+                          type="text"
+                          name="email"
+                          [(ngModel)]='user.email'
+                          placeholder="Escribe tu email"
+                      >
+                      <span class="focus-input100"></span>
+                  </div>
+  ​
+                  <div class="wrap-input100 m-b-16">
+                      <input
+                          class="input100"
+                          type="password"
+                          name="password"
+                          [(ngModel)]='user.password'
+                          placeholder="Escribe tu contraseña"
+                      >
+                      <span class="focus-input100"></span>
+                  </div> ​
+                  <div class="container-login100-form-btn m-t-17">
+                      <button class="btn btn-block btn-primary" type="submit">
+                          Entrar
+                      </button>
+                  </div> ​
+              </form> ​
+          </div> ​
+      </div>

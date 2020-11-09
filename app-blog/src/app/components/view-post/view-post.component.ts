@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post.model';
 
 import { CommonService } from 'src/app/services/common.service';
 import { ViewPostService } from 'src/app/services/view-post.service';
@@ -10,7 +11,7 @@ import { ViewPostService } from 'src/app/services/view-post.service';
 })
 export class ViewPostComponent implements OnInit {
 
-  public posts: any [];
+ posts:  Post[];
 
   constructor(private viewPostService: ViewPostService, private commonService: CommonService) { }
 
@@ -25,9 +26,13 @@ export class ViewPostComponent implements OnInit {
 
   }
 
-  getAllPost() {
-    this.viewPostService.getAllPost().subscribe(result => {
-      this.posts = result['data'];
-    });
+  getAllPost(): void {
+    this.viewPostService.getAllPost()
+    .subscribe(result => this.posts = result['']);
+  }
+ 
+  editPost(post: Post){
+    this.commonService.setPostToEdit(post);
+    console.log('post is ',post);
   }
 }
